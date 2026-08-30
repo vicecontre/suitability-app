@@ -32,9 +32,15 @@ de puntaje. Se mantuvieron 10 de esas 11 preguntas prácticamente intactas
    de referencia 4 del instructivo (teoría de prospectos, Kahneman & Tversky
    / Carrie, Pan & Statman, 2012).
 
-Además se agregaron dos preguntas que **no puntúan** en el perfil de riesgo,
-para dos capas de análisis adicionales (ver más abajo): estilo de decisión
-(activo/pasivo) y circunstancias vitales/vulnerabilidad.
+Además se agregaron tres preguntas que **no puntúan** en el perfil de riesgo,
+para tres capas de análisis/filtro adicionales (ver más abajo): estilo de
+decisión (activo/pasivo), circunstancias vitales/vulnerabilidad, y activos
+digitales/FOMO.
+
+Por último, se sumaron dos preguntas de **alfabetización financiera objetiva**
+(P5b, P5c — Lusardi & Mitchell, 2011, la referencia internacional en este
+tema) para reforzar la dimensión "Conocimiento", que antes dependía solo de
+autoevaluación y experiencia declarada (ambas subjetivas).
 
 ## Dimensiones y pesos
 
@@ -43,7 +49,7 @@ para dos capas de análisis adicionales (ver más abajo): estilo de decisión
 | Tolerancia al riesgo (psicológica) | 25% | P6, P7, P8, P9 |
 | Capacidad de riesgo (financiera) | 25% | P2, P3 |
 | Situación financiera y flujos | 15% | P10, P11 |
-| Conocimiento y experiencia financiera | 15% | P5 |
+| Conocimiento y experiencia financiera | 15% | P5, P5b, P5c |
 | Horizonte de inversión | 10% | P1 |
 | Sesgos de comportamiento | 10% | P12 |
 
@@ -77,6 +83,8 @@ el perfil, nunca subirlo (ver `src/lib/scoring.js`):
 4. Evento vital reciente (P14) → tope Moderado (Banks et al., 2019; G20/OECD, 2022).
 5. Tolerancia alta + aversión a la pérdida alta (mismatch) → un escalón menos
    (Van Dolder & Vandenbroucke, 2024).
+6. Inversión impulsiva en activos digitales/FOMO (P15) → tope Moderado
+   (CFA Institute, 2023).
 
 ## Capas adicionales (más allá de lo mínimo pedido)
 

@@ -15,6 +15,13 @@
 //      Kahneman & Tversky; Carrie, Pan & Statman, 2012), y por sí sola
 //      cubre esa dimensión obligatoria.
 //
+// Además de esos dos cambios, se agregaron tres preguntas extra a partir de
+// literatura académica (no exigidas por el instructivo, pero justificadas):
+//   3. P5b y P5c: alfabetización financiera objetiva ("Big Three" de
+//      Lusardi & Mitchell, 2011) — refuerzan "Conocimiento" con preguntas de
+//      respuesta correcta verificable, en vez de solo autoevaluación.
+//   4. P15 (activos digitales/FOMO, ver más abajo): CFA Institute (2023).
+//
 // Pesos por dimensión (suman 1.0). HHI = sum(w_i^2) = 0.19, por debajo del
 // umbral de 0.25 que la CMF identifica como "concentración alta" entre
 // cuestionarios de AGF chilenas (Álvarez y Caamaño, 2026).
@@ -103,6 +110,32 @@ export const SCORED_QUESTIONS = [
       { letter: 'b', text: 'No he invertido, pero sí tengo conocimientos', points: 2 },
       { letter: 'c', text: 'He invertido, pero asesorado por un experto', points: 3 },
       { letter: 'd', text: 'Tengo conocimientos e invierto activamente', points: 4 },
+    ],
+  },
+  {
+    id: 'p5b_literacy_interes',
+    dimension: 'conocimiento',
+    added: true,
+    text: 'Suponga que deposita $100.000 en una cuenta de ahorro que paga 2% de interés al año, y no retira ni deposita nada más. Después de 5 años, ¿cuánto cree que tendrá en la cuenta?',
+    source: 'Lusardi & Mitchell (2011), "Financial Literacy around the World" (NBER) — primera de las "Big Three", el estándar internacional de alfabetización financiera (usado por la OCDE). A diferencia de P5 (autoevaluación + experiencia), esta tiene una respuesta objetivamente correcta.',
+    options: [
+      { letter: 'a', text: 'Más de $110.000', points: 4 },
+      { letter: 'b', text: 'Exactamente $110.000', points: 1 },
+      { letter: 'c', text: 'Menos de $110.000', points: 1 },
+      { letter: 'd', text: 'No estoy seguro/a', points: 1 },
+    ],
+  },
+  {
+    id: 'p5c_literacy_inflacion',
+    dimension: 'conocimiento',
+    added: true,
+    text: 'Suponga que el interés de su cuenta de ahorro es 1% al año y la inflación es 2% al año. Después de 1 año, con el dinero de esa cuenta, ¿podría comprar...?',
+    source: 'Lusardi & Mitchell (2011) — segunda de las "Big Three" (comprensión de inflación / poder adquisitivo).',
+    options: [
+      { letter: 'a', text: 'Más de lo que puede comprar hoy', points: 1 },
+      { letter: 'b', text: 'Exactamente lo mismo que hoy', points: 1 },
+      { letter: 'c', text: 'Menos de lo que puede comprar hoy', points: 4 },
+      { letter: 'd', text: 'No estoy seguro/a', points: 1 },
     ],
   },
   {
@@ -247,17 +280,40 @@ export const VULNERABILITY_QUESTION = {
   ],
 };
 
+// Activos digitales / FOMO: pregunta nueva, no puntúa en el compuesto.
+// Actúa como un sexto filtro de seguridad (downgrade) cuando revela una
+// conducta de inversión impulsiva. Fuente: CFA Institute (2023), "Gen Z and
+// Investing: Social Media, Crypto, FOMO, and Family" — citado en el paper de
+// Suitability de la CMF, que recomienda explícitamente que el proceso de
+// idoneidad "evalúe sesgos impulsivos como el FOMO" en vez de depender solo
+// de la autoevaluación de tolerancia al riesgo.
+export const DIGITAL_ASSETS_QUESTION = {
+  id: 'p15_activos_digitales',
+  axis: 'digitalAssets',
+  added: true,
+  text: '¿Cómo describiría su relación con las criptomonedas u otros activos digitales?',
+  source: 'CFA Institute (2023), "Gen Z and Investing: Social Media, Crypto, FOMO, and Family".',
+  options: [
+    { letter: 'a', text: 'No he invertido en criptomonedas ni activos digitales' },
+    { letter: 'b', text: 'He invertido después de investigar el proyecto o activo' },
+    { letter: 'c', text: 'He invertido principalmente porque muchas personas hablaban de eso en ese momento' },
+    { letter: 'd', text: 'Invierto frecuentemente en activos digitales nuevos apenas se vuelven populares' },
+  ],
+};
+
 function byId(id) {
   return SCORED_QUESTIONS.find((q) => q.id === id);
 }
 
-// Orden de presentación al usuario (14 preguntas en total).
+// Orden de presentación al usuario (17 preguntas en total).
 export const ALL_QUESTIONS = [
   byId('p1_horizonte'),
   byId('p2_patrimonio'),
   byId('p3_ingresos'),
   OBJECTIVE_QUESTION,
   byId('p5_conocimiento'),
+  byId('p5b_literacy_interes'),
+  byId('p5c_literacy_inflacion'),
   byId('p6_estilo'),
   byId('p7_recesion'),
   byId('p8_caida50'),
@@ -267,4 +323,5 @@ export const ALL_QUESTIONS = [
   byId('p11_ahorro_emergencia'),
   ACTIVITY_QUESTION,
   VULNERABILITY_QUESTION,
+  DIGITAL_ASSETS_QUESTION,
 ];

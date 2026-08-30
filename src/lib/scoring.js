@@ -119,6 +119,16 @@ export function applySafetyFilters({ answers, initialProfile, dimensionScores })
     });
   }
 
+  if (answers.p15_activos_digitales === 'd') {
+    result = capAt(result, 'Moderado');
+    applied.push({
+      id: 'fomo',
+      label: 'Inversión impulsiva en activos digitales (FOMO)',
+      reason:
+        'Perseguir activos digitales nuevos apenas se vuelven populares es un patrón de inversión impulsivo, no de tolerancia genuina al riesgo; se limita el perfil a Moderado (CFA Institute, 2023).',
+    });
+  }
+
   return { result, applied };
 }
 
