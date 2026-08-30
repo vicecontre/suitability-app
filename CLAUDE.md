@@ -92,6 +92,34 @@ localmente. Dos formas de verificar cambios igual:
   "lockfile out of sync", lo más simple es borrarlo y dejar que `npm
   install` lo regenere (requiere Node disponible en ese momento).
 
+## Documento de diseño (Entregable 2)
+
+La fuente de verdad del documento de diseño es **`docs/documento-diseno.tex`**
+(LaTeX, pensado para Overleaf) — **no** un artifact ni ninguna página
+generada por Claude fuera del repo. Ese `.tex` es lo que se entrega
+(compilado a PDF), y debe mantenerse sincronizado a mano cada vez que
+cambie algo en `src/data/questions.js` o `src/lib/scoring.js`: preguntas,
+puntajes, pesos de dimensión, filtros de seguridad o capas adicionales.
+
+Cómo trabajarlo:
+
+1. Copiar el contenido de `docs/documento-diseno.tex` a un proyecto de
+   Overleaf (Overleaf → New Project → Upload Project, o pegar el contenido
+   en un proyecto en blanco) y compilar con pdfLaTeX.
+2. Nadie en este equipo puede compilar LaTeX localmente sin instalar un
+   toolchain de TeX — Overleaf es la vía más simple, no requiere instalar
+   nada.
+3. Si Claude edita este archivo, debe hacerlo **directamente en el
+   `.tex`** (no crear una versión HTML/Artifact aparte) y avisar
+   explícitamente qué sección cambió, para que se pueda volver a compilar
+   en Overleaf y revisar el PDF resultante.
+4. Antes de dar por cerrado el documento, verificar que compile sin
+   errores en Overleaf al menos una vez — nadie en este hilo lo ha
+   compilado todavía, así que puede tener errores de sintaxis LaTeX no
+   detectados (paquetes: `booktabs`, `longtable`, `makecell`,
+   `xcolor[table]`, `mdframed`, `hyperref`, `babel[spanish]` — todos
+   estándar en la distribución completa de Overleaf).
+
 ## Lo que probablemente cambie (y cómo no romper nada al cambiarlo)
 
 Este es un trabajo de curso en desarrollo activo; varias cosas están

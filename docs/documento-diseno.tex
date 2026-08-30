@@ -1,0 +1,273 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=2.3cm]{geometry}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{parskip}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{makecell}
+\usepackage{array}
+\usepackage[table]{xcolor}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{mdframed}
+\usepackage{hyperref}
+
+% ---------------------------------------------------------------------
+% Colores y estilo de títulos
+% ---------------------------------------------------------------------
+\definecolor{accent}{HTML}{9C6B1F}
+\definecolor{inkgray}{HTML}{454F61}
+\definecolor{hairline}{HTML}{DCDFE0}
+
+\titleformat{\section}{\normalfont\Large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalfont\large\bfseries\color{accent}}{\thesubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{1.4em}{0.8em}
+
+\newmdenv[
+  linecolor=accent,
+  linewidth=2pt,
+  topline=false, bottomline=false, rightline=false,
+  backgroundcolor=accent!8,
+  innertopmargin=8pt, innerbottommargin=8pt,
+  innerleftmargin=10pt, innerrightmargin=10pt,
+]{callout}
+
+\hypersetup{colorlinks=true, linkcolor=accent, urlcolor=accent, citecolor=accent}
+
+\newcommand{\newq}{\textsuperscript{\textcolor{accent}{\scriptsize[NUEVA]}}}
+\newcommand{\modq}{\textsuperscript{\textcolor{blue!50!black}{\scriptsize[REESCRITA]}}}
+
+\title{\Large\textbf{Cuestionario de Suitability: diseño, puntaje y justificación}\\[4pt]
+\large\textit{Documento de diseño --- Entregable 2}}
+\author{Grupo: [Completar con nombres del grupo] \\ Administración de Portafolio Avanzada --- Escuela de Postgrado, Universidad de Chile \\ Profesor: Hugo Aravena Nehme, CFA \quad Ayudante: Benjamín Sáez}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+
+\begin{callout}
+\textbf{En una frase:} el cuestionario cubre las 5 dimensiones obligatorias del instructivo más una dimensión de sesgos de comportamiento que no estaba operacionalizada en nuestro borrador original, cubre las 6 preguntas de referencia del instructivo (se exigen mínimo 3), y agrega 6 filtros de seguridad más dos capas de análisis con respaldo académico explícito. Herramienta en línea: \url{https://suitability-app-tau.vercel.app/}.
+\end{callout}
+
+\section{Cobertura de dimensiones}
+
+Este cuestionario parte de un instrumento propio de 11 preguntas (\textit{Questionario Suitability.pdf}, elaborado íntegramente por el grupo) y se amplía a 17. Se preservó la redacción original en 10 de esas 11 preguntas; se reescribió una (P9) por un problema de exclusividad mutua en sus opciones, y se agregaron 6 preguntas nuevas justificadas en la literatura académica y regulatoria citada en el curso.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}p{4.8cm}p{2.5cm}p{2cm}p{4cm}@{}}
+\toprule
+\textbf{Dimensión requerida} & \textbf{Preguntas} & \textbf{Peso} & \textbf{Ref. instructivo} \\
+\midrule
+Horizonte de inversión & P1 & 10\% & Ref. 2 \\
+Tolerancia al riesgo & P6, P7, P8, P9 & 25\% & Ref. 1 (P8) \\
+Capacidad de riesgo & P2, P3 & 25\% & Ref. 3 (P2) \\
+Conocimiento financiero & P5, P5b, P5c & 15\% & Ref. 5 (P5) \\
+Situación financiera y flujos & P10, P11 & 15\% & Ref. 6 (P10) \\
+Sesgos de comportamiento & P12 & 10\% & Ref. 4 (P12) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+P4 (objetivo), P13 (estilo de decisión), P14 (vulnerabilidad) y P15 (activos digitales) no puntúan el perfil de riesgo --- se explican en la Sección \ref{sec:capas}.
+
+\section{Preguntas, dimensión, opciones y puntaje}
+\label{sec:tabla}
+
+Puntaje de 1 (mínimo) a 3 o 4 (máximo, según la pregunta) por opción. Las preguntas marcadas \modq{} fueron reescritas respecto al cuestionario original del grupo; las marcadas \newq{} son preguntas agregadas que no estaban en el original.
+
+\begin{footnotesize}
+\begin{longtable}{@{}p{1.1cm}p{2.6cm}p{5.6cm}p{6.1cm}@{}}
+\toprule
+\textbf{ID} & \textbf{Dimensión} & \textbf{Pregunta} & \textbf{Opciones (puntaje)} \\
+\midrule
+\endhead
+
+P1 & Horizonte \newline \textit{peso 10\%} &
+¿A qué plazo está dispuesto a invertir? ¿Cuándo necesitaría disponer de ese dinero? \newline {\scriptsize\textit{MiFID II / CMF}} &
+\makecell[l]{Menos de 1 año (1) \\ De 1 a 5 años (2) \\ 5 o más años (3)} \\
+\addlinespace
+
+P2 & Capacidad de riesgo \newline \textit{peso 25\%} &
+¿Qué \% de tus ahorros/patrimonio representa tu inversión? \newline {\scriptsize\textit{FINRA / bancos chilenos}} &
+\makecell[l]{Menos del 20\% (3) \\ Entre 20\% y 50\% (2) \\ Más del 50\% (1)} \\
+\addlinespace
+
+P3 & (misma dimensión) &
+¿Qué \% de tus ingresos representa tu inversión? \newline {\scriptsize\textit{Capacidad por flujo, complementaria a P2}} &
+\makecell[l]{Menos del 20\% (3) \\ Entre 20\% y 50\% (2) \\ Más del 50\% (1)} \\
+\addlinespace
+
+P5 & Conocimiento \newline \textit{peso 15\%} &
+¿Tiene experiencia o conocimiento invirtiendo en fondos mutuos o acciones? \newline {\scriptsize\textit{MiFID II / CMF}} &
+\makecell[l]{Ninguna experiencia ni\\ conocimiento (1) \\ Sin invertir, con\\ conocimientos (2) \\ Invirtió asesorado (3) \\ Conocimientos e invierte\\ activamente (4)} \\
+\addlinespace
+
+P5b\newq & (misma dimensión) &
+\$100.000 al 2\% anual, 5 años sin retiros: ¿cuánto habrá? \newline {\scriptsize\textit{Lusardi \& Mitchell (2011), Big Three \#1}} &
+\makecell[l]{Más de \$110.000 --- correcta (4) \\ Exactamente \$110.000 (1) \\ Menos de \$110.000 (1) \\ No estoy seguro/a (1)} \\
+\addlinespace
+
+P5c\newq & (misma dimensión) &
+Interés 1\% anual, inflación 2\% anual: ¿podrá comprar más, igual o menos en 1 año? \newline {\scriptsize\textit{Lusardi \& Mitchell (2011), Big Three \#2}} &
+\makecell[l]{Más de lo que compra hoy (1) \\ Exactamente lo mismo (1) \\ Menos --- correcta (4) \\ No estoy seguro/a (1)} \\
+\addlinespace
+
+P6 & Tolerancia al riesgo \newline \textit{peso 25\%} &
+¿Qué situación te identifica más respecto a las inversiones? \newline {\scriptsize\textit{Preferencia declarada de asignación}} &
+\makecell[l]{Todo bajo riesgo, ganancia\\ acotada (1) \\ Reparto riesgo alto/bajo (2) \\ Todo alto riesgo (3)} \\
+\addlinespace
+
+P7 & (misma dimensión) &
+Si el mercado entra en recesión y tu inversión pierde valor, ¿qué harías? \newline {\scriptsize\textit{Reacción revelada, evento macro}} &
+\makecell[l]{Vender de inmediato (1) \\ Consultar a mi asesor (2) \\ Mantener y comprar más (3)} \\
+\addlinespace
+
+P8 & (misma dimensión) &
+Si tu portafolio pierde un 50\% de su valor, ¿qué harías? \newline {\scriptsize\textit{Ref. 1 instructivo (-20\%$\to$-50\%) / CMF / CFA Institute}} &
+\makecell[l]{Vender de inmediato (1) \\ Consultar a mi asesor (2) \\ Mantener y comprar más (3)} \\
+\addlinespace
+
+P9\modq & (misma dimensión) &
+El riesgo en las inversiones representa para ti, principalmente: \newline {\scriptsize\textit{Original: amenaza/inseguridad/oportunidad, no excluyentes}} &
+\makecell[l]{Algo a evitar siempre (1) \\ Algo a asumir con\\ cautela (2) \\ Oportunidad a buscar\\ activamente (3)} \\
+\addlinespace
+
+P12\newq & Sesgos de comportamiento \newline \textit{peso 10\%} &
+Imagine que debe elegir entre dos alternativas de inversión. ¿Cuál prefiere? \newline {\scriptsize\textit{Ref. 4 instructivo / Kahneman \& Tversky / Carrie, Pan \& Statman (2012)}} &
+\makecell[l]{Asegurar \$800.000, sin\\ dudar (1) \\ Asegurar \$800.000, con\\ tentación (2) \\ Arriesgar \$2M/\$0, con\\ duda (3) \\ Arriesgar \$2M/\$0, sin\\ dudar (4)} \\
+\addlinespace
+
+P10 & Situación financiera \newline \textit{peso 15\%} &
+¿Cómo esperas que sean tus ingresos en los próximos años? \newline {\scriptsize\textit{Ref. 6 instructivo / Encuestas AFP / CMF}} &
+\makecell[l]{Esporádicos (1) \\ Estables en 1-2 años (2) \\ Estables en 5 años (3)} \\
+\addlinespace
+
+P11 & (misma dimensión) &
+¿Cuál es tu capacidad de ahorro para hacer frente a imprevistos? \newline {\scriptsize\textit{Colchón de liquidez}} &
+\makecell[l]{Ninguna reserva (1) \\ Ahorro esporádico (2) \\ Ahorro constante con\\ reserva (3)} \\
+\addlinespace
+
+\multicolumn{4}{@{}l}{\textit{Preguntas que no puntúan el perfil de riesgo (contexto o filtros de seguridad):}} \\
+\addlinespace
+
+P4 & Contexto &
+¿Qué buscas con tu inversión? \newline {\scriptsize\textit{Objetivo declarado, no se mezcla con tolerancia}} &
+\makecell[l]{Preservar capital \\ Crecimiento moderado \\ Máximo crecimiento} \\
+\addlinespace
+
+P13\newq & Eje Pompian &
+¿Cómo describe su forma de tomar decisiones de inversión? \newline {\scriptsize\textit{Pompian (2008), Paso 1}} &
+\makecell[l]{Decide un asesor\\ calificado \\ Sigo familia/amigos/redes \\ Comparo y decido,\\ converso a veces \\ Decido solo} \\
+\addlinespace
+
+P14\newq & Filtro de seguridad &
+¿Ha vivido en el último año alguna de estas situaciones? \newline {\scriptsize\textit{Banks et al. (2019); G20/OECD (2022)}} &
+\makecell[l]{Ninguna \\ Cesantía/jubilación\\ reciente \\ Diagnóstico de salud\\ grave \\ Cambio familiar mayor} \\
+\addlinespace
+
+P15\newq & Filtro de seguridad &
+¿Cómo describiría su relación con las criptomonedas u otros activos digitales? \newline {\scriptsize\textit{CFA Institute (2023)}} &
+\makecell[l]{No he invertido \\ Invertí tras investigar \\ Invertí por FOMO puntual \\ Persigo activos nuevos\\ apenas se ponen de moda} \\
+
+\bottomrule
+\end{longtable}
+\end{footnotesize}
+
+\section{Sistema de puntuación}
+
+El puntaje se calcula a partir de las 13 preguntas que puntúan (P1, P2, P3, P5, P5b, P5c, P6, P7, P8, P9, P12, P10, P11), en dos pasos:
+
+\begin{enumerate}[label=\textbf{Paso \arabic*.}]
+  \item \textbf{Normalizar cada respuesta:} $\text{score}_{\text{norm}} = \dfrac{\text{puntos} - 1}{\text{puntos}_{\text{máx}} - 1}$, escala 0--1.
+  \item \textbf{Promediar por dimensión, ponderar y sumar:} $\text{Puntaje compuesto} = 100 \times \displaystyle\sum_{d} \left(\overline{\text{score}}_d \times \text{peso}_d\right)$
+\end{enumerate}
+
+El puntaje compuesto (0 a 100) se mapea a los 4 perfiles obligatorios en bandas parejas de 25 puntos:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{}p{3.5cm}p{3.5cm}p{3.5cm}p{3.5cm}@{}}
+\toprule
+\cellcolor{green!25}\textbf{Conservador} & \cellcolor{cyan!20}\textbf{Moderado} & \cellcolor{yellow!30}\textbf{Moderado-Agresivo} & \cellcolor{red!20}\textbf{Agresivo} \\
+0 -- 25 & 26 -- 50 & 51 -- 75 & 76 -- 100 \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Después del puntaje inicial se aplican \textbf{6 filtros de seguridad} que solo pueden bajar el perfil, nunca subirlo:
+
+\begin{enumerate}
+  \item \textbf{Horizonte < 1 año} (P1=a) $\to$ tope Conservador. \textit{(CMF / MiFID II)}
+  \item \textbf{Sin fondo de emergencia} (P11=a) $\to$ tope Moderado. \textit{(FINRA / bancos chilenos)}
+  \item \textbf{Conocimiento nulo} (P5=a) $\to$ tope Moderado. \textit{(MiFID II / CMF)}
+  \item \textbf{Evento vital reciente} (P14$\neq$a) $\to$ tope Moderado. \textit{(Banks et al., 2019; G20/OECD, 2022)}
+  \item \textbf{Tolerancia alta + aversión a la pérdida alta} (mismatch) $\to$ un escalón menos. \textit{(Van Dolder \& Vandenbroucke, 2024)}
+  \item \textbf{FOMO en activos digitales} (P15=d) $\to$ tope Moderado. \textit{(CFA Institute, 2023)}
+\end{enumerate}
+
+\section{Justificación de los pesos}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}lr@{}}
+\toprule
+\textbf{Dimensión} & \textbf{Peso} \\
+\midrule
+Tolerancia al riesgo & 25\% \\
+Capacidad de riesgo & 25\% \\
+Situación financiera y flujos & 15\% \\
+Conocimiento financiero & 15\% \\
+Horizonte de inversión & 10\% \\
+Sesgos de comportamiento & 10\% \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Tolerancia y capacidad de riesgo son los dos pilares regulatorios del proceso de suitability (CMF/MiFID II) y son las dos dimensiones que la literatura muestra que son \textbf{independientes} entre sí (Van Dolder \& Vandenbroucke, 2024) --- por eso reciben el peso más alto y ambas a la par, para que ninguna domine el resultado por sí sola. Horizonte y sesgos de comportamiento pesan menos en la suma porque además actúan como \textbf{filtros} (horizonte corto y el mismatch de aversión a la pérdida ya tienen su propio mecanismo de downgrade) --- subirles el peso además de eso los contaría dos veces.
+
+\begin{callout}
+\textbf{Control de concentración:} el índice de Herfindahl-Hirschman de estos pesos es $\mathrm{HHI} = \sum w_i^2 = 0.19$ (con $w_i$ como fracción), por debajo del umbral de 0.25 que la CMF identifica como ``concentración alta'' en su análisis de 42 AGF chilenas (Álvarez y Caamaño, 2026) --- evitamos deliberadamente el patrón que ese estudio identificó como una debilidad frecuente de la industria.
+\end{callout}
+
+\section{Capas adicionales (más allá del mínimo pedido)}
+\label{sec:capas}
+
+\subsection{Chequeo de consistencia (IRV)}
+Detecta respuestas ``en línea recta'' (misma opción repetida) que sugieren baja confiabilidad más que un perfil real, mostrando una advertencia en el resultado. \textit{Fuente: Hartnett, Gerrans y Faff (2019), Financial Analysts Journal.}
+
+\subsection{Tipo de Inversionista Conductual}
+Capa secundaria e informativa (Preservador Pasivo / Seguidor Amistoso / Individualista Independiente / Acumulador Activo) que no reemplaza el perfil de riesgo, pero anticipa qué sesgos son más probables para ese inversionista. \textit{Fuente: Pompian (2008) --- visto en la Sesión 2 del curso.}
+
+\section{Reflexión: limitaciones y mejoras}
+
+\textbf{No se probó con un respondente externo al grupo.} El propio instructivo recomienda validar el cuestionario con alguien externo antes de la entrega. Con más tiempo, correríamos al menos 3--5 pilotos externos y ajustaríamos la redacción de las preguntas que generen dudas, como ya hicimos internamente con P9, P12 y P13.
+
+\textbf{Bandas de perfil parejas, no calibradas empíricamente.} Dividimos el puntaje 0--100 en cuatro tramos iguales de 25 puntos por simplicidad y transparencia. El paper de la CMF muestra que un instrumento aditivo bien calibrado concentra naturalmente 38\%--68\% de las respuestas posibles en la categoría media (Teorema Central del Límite). No corrimos el ``ejercicio de permutaciones'' completo (todas las combinaciones posibles de respuestas) para verificar en qué rango cae nuestro propio instrumento --- es la validación más importante que haríamos con más tiempo.
+
+\textbf{Preferencias de sostenibilidad (ESG) quedaron fuera.} Es la sexta categoría que recomienda la CMF y la evaluamos, pero decidimos no incluirla en esta entrega: el propio paper de la CMF aclara que ESG no debe mezclarse con el perfil de riesgo, sino evaluarse aparte --- más relevante para la Tarea 2 (filtraría qué fondos recomendar) que para el perfilamiento de riesgo de la Tarea 1.
+
+\textbf{Escalas de 3--4 opciones son más coarse que un instrumento largo.} La mayoría de nuestras preguntas usa 3 opciones, siguiendo el estilo del cuestionario original del equipo. Esto es razonable (la industria chilena varía entre 2 y 39 alternativas por pregunta, según la CMF) pero es menos granular que escalas de 5--7 puntos. Lo compensamos promediando dentro de cada dimensión con varias preguntas en vez de depender de una sola.
+
+\begin{callout}
+\textbf{En síntesis:} el cuestionario cumple y excede el mínimo del instructivo (17 preguntas, 6 dimensiones, cobertura de las 6 preguntas de referencia), y cada decisión de peso, filtro o pregunta agregada tiene una fuente académica o regulatoria específica citada en este documento --- no hay pesos arbitrarios.
+\end{callout}
+
+\begin{thebibliography}{99}
+\bibitem{cmf} Álvarez, N. y Caamaño, M. (2026). \textit{Mejores prácticas y proceso de Suitability para la Industria de Fondos}. CMF Chile.
+\bibitem{banks} Banks, J., Bassoli, E. y Mammi, I. (2019). Changing attitudes to risk at older ages. \textit{Journal of Economic Psychology}, 79.
+\bibitem{carrie} Carrie, H., Pan, C. y Statman, M. (2012). Questionnaires of risk tolerance. \textit{Journal of Investment Consulting}, 13(1).
+\bibitem{cfa} CFA Institute (2023). \textit{Gen Z and Investing: Social Media, Crypto, FOMO, and Family}.
+\bibitem{g20} G20/OECD (2022). \textit{High-Level Principles on Financial Consumer Protection}.
+\bibitem{hartnett} Hartnett, N., Gerrans, P. y Faff, R. (2019). Trusting clients' financial risk tolerance survey scores. \textit{Financial Analysts Journal}, 75(2).
+\bibitem{kahneman} Kahneman, D. y Tversky, A. (1979). Prospect theory. \textit{Econometrica}, 47(2).
+\bibitem{lusardi} Lusardi, A. y Mitchell, O. S. (2011). Financial literacy around the world. \textit{NBER Working Paper} 17107.
+\bibitem{pompian} Pompian, M. (2008). \textit{Behavioral Finance and Wealth Management}. Wiley.
+\bibitem{vandolder} Van Dolder, D. y Vandenbroucke, J. (2024). Behavioral risk profiling. \textit{Journal of Banking \& Finance}, 168.
+\end{thebibliography}
+
+\end{document}
