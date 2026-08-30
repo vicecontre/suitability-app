@@ -89,19 +89,20 @@ el perfil, nunca subirlo (ver `src/lib/scoring.js`):
 
 ## Persistencia (Supabase opcional)
 
-Por ahora todo se guarda en `localStorage`. Para activar Supabase (registro
-y trazabilidad de las respuestas, ver `src/lib/storage.js`):
+Si no se configuran las variables de entorno, todo se guarda en
+`localStorage`. Para activar Supabase (registro y trazabilidad de las
+respuestas, ver `src/lib/storage.js`):
 
 1. Crear un proyecto en [supabase.com](https://supabase.com).
-2. `npm install @supabase/supabase-js`
-3. Copiar `.env.example` a `.env` y completar `VITE_SUPABASE_URL` /
-   `VITE_SUPABASE_ANON_KEY`.
-4. Ejecutar el SQL que está comentado en `.env.example` en el SQL editor de
+2. Ejecutar el SQL que está comentado en `.env.example` en el SQL editor de
    Supabase (crea la tabla `submissions` con RLS activado, solo-inserción
    desde el navegador).
+3. Copiar `.env.example` a `.env` y completar `VITE_SUPABASE_URL` /
+   `VITE_SUPABASE_ANON_KEY` (Project Settings → API → Publishable key).
 
-No hay que tocar ningún componente: `storage.js` detecta automáticamente si
-Supabase está disponible.
+El cliente (`@supabase/supabase-js`) ya viene como dependencia del proyecto;
+no hace falta instalar nada aparte. `storage.js` detecta automáticamente si
+las variables de entorno están presentes.
 
 ## Deploy en Vercel
 
