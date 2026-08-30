@@ -11,10 +11,34 @@ más abajo.
 
 ## Cómo correr
 
+Requiere [Node.js](https://nodejs.org) instalado (v18 o superior). Si al
+correr `node --version` da "command not found", instala Node primero —
+sin eso no se puede levantar el servidor local ni compilar el proyecto en
+esta máquina (sí se puede seguir editando código igual; Vercel compila en
+la nube en cada push, así que no es un bloqueante para colaborar, solo
+para probarlo localmente antes de subir cambios).
+
 ```bash
 npm install   # si node_modules no vino copiado o quedó desactualizado
 npm run dev
 ```
+
+## Colaboración en equipo
+
+- **Para editar código y que se despliegue solo**: basta con ser
+  **collaborator del repo de GitHub** (Settings → Collaborators and teams →
+  Add people, en `github.com/vicecontre/suitability-app`). No hace falta
+  cuenta de Vercel ni de Supabase — cualquier push a `main` redeploya
+  automáticamente.
+- **Usa tu propia identidad de git**, no la de otra persona: si
+  `git config user.name` / `user.email` en tu máquina no coinciden con tu
+  cuenta real de GitHub, Vercel puede marcar tus deployments como
+  **Blocked** (nos pasó una vez). Si eso ocurre, un simple collaborator no
+  puede destrabarlo — solo quien tiene acceso al dashboard de Vercel
+  (la cuenta dueña, vicecontre) puede aprobarlo o revisar la causa ahí.
+- Las variables de entorno de Supabase (`VITE_SUPABASE_URL`,
+  `VITE_SUPABASE_ANON_KEY`) viven en la configuración de Vercel, no en el
+  repo — un push de código nunca las toca ni las expone.
 
 ## Cambios respecto al cuestionario original del equipo
 

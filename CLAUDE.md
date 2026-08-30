@@ -89,6 +89,12 @@ localmente. Dos formas de verificar cambios igual:
   repo de GitHub** (gratis e ilimitado) — cualquier push a `main` redeploya
   solo, sin que nadie más toque Vercel. Sumar gente al dashboard de Vercel
   mismo normalmente requiere plan pago (no lo necesitamos).
+  - Esto alcanza para el flujo normal (editar → commit con su propia
+    identidad de git → push → sitio actualizado), pero **no alcanza si un
+    deployment queda "Blocked"**: solo quien tiene acceso al dashboard de
+    Vercel (vicecontre) puede revisarlo o aprobarlo ahí. Un collaborator de
+    GitHub que se tope con esto debe avisarle a vicecontre, no puede
+    resolverlo por su cuenta.
 - **Nunca** poner la `service_role` / `secret key` de Supabase en una
   variable `VITE_...` — esas terminan visibles en el navegador de
   cualquiera. Solo la `anon` / `publishable key` va en el frontend.
