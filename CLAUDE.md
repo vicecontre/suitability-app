@@ -49,6 +49,17 @@ proyecto.
    ese Windows (pasó una vez en un PC compartido). Arreglo rápido, sin
    borrar nada: `git remote set-url origin https://vicecontre@github.com/vicecontre/suitability-app.git`
    y reintentar — eso fuerza el prompt de login con la cuenta correcta.
+5. **Identidad del autor de los commits**: configura el git local de este
+   repo (no global, para no pisar otros proyectos en un PC compartido) con
+   `git config user.name "vicecontre"` y
+   `git config user.email "vicecontre@fen.uchile.cl"`. Si los commits quedan
+   autorados con otro email (por ejemplo, la cuenta personal de quien esté
+   usando el PC en ese momento), Vercel puede marcar el deployment como
+   **Blocked** en el dashboard porque no reconoce ese autor como parte del
+   proyecto — nos pasó una vez. Si vuelve a pasar: revisa el deployment
+   bloqueado en Vercel (suele traer un botón para aprobarlo manualmente), o
+   en Project Settings → Deployment Protection revisa si hay una regla de
+   verificación de autor que convenga desactivar para este proyecto.
 5. **Variables de entorno**: copiar `.env.example` a `.env` y pedirle los
    valores reales al dueño de la cuenta de Supabase (no están en el repo a
    propósito). Sin `.env`, la app funciona igual pero guarda en
