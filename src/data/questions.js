@@ -159,13 +159,13 @@ export const SCORED_QUESTIONS = [
     dimension: 'sesgos',
     referenceId: 4,
     added: true,
-    text: 'Le ofrecen dos alternativas para $1.000.000 de una inversión que ya tiene ganada. ¿Cuál prefiere?',
-    source: 'Kahneman & Tversky (teoría de prospectos) / Carrie, Pan & Statman (2012) — Pregunta de referencia 4 del instructivo. Pregunta nueva: cierra la dimensión "Sesgos de comportamiento", que no estaba operacionalizada en el cuestionario original.',
+    text: 'Imagine que debe elegir entre dos alternativas de inversión. ¿Cuál prefiere?',
+    source: 'Kahneman & Tversky (teoría de prospectos) / Carrie, Pan & Statman (2012) — Pregunta de referencia 4 del instructivo. Pregunta nueva: cierra la dimensión "Sesgos de comportamiento", que no estaba operacionalizada en el cuestionario original. Redactada sin el envoltorio de "inversión ya ganada" del borrador anterior, que generaba ambigüedad sobre qué representaba el monto.',
     options: [
-      { letter: 'a', text: 'Asegurar con certeza $800.000, sin dudarlo', points: 1 },
-      { letter: 'b', text: 'Asegurar $800.000, aunque lo dudo un poco', points: 2 },
-      { letter: 'c', text: 'Ir por $2.000.000 o $0, aunque me genera algo de duda', points: 3 },
-      { letter: 'd', text: 'Ir claramente por $2.000.000 o $0, sin dudarlo', points: 4 },
+      { letter: 'a', text: 'Asegurar $800.000 de ganancia, sin dudarlo', points: 1 },
+      { letter: 'b', text: 'Asegurar $800.000, aunque me tienta la otra opción', points: 2 },
+      { letter: 'c', text: 'Arriesgarme a ganar $2.000.000 o no ganar nada, aunque lo dudo un poco', points: 3 },
+      { letter: 'd', text: 'Arriesgarme claramente a ganar $2.000.000 o no ganar nada', points: 4 },
     ],
   },
   {
@@ -220,12 +220,12 @@ export const ACTIVITY_QUESTION = {
   axis: 'activity',
   added: true,
   text: '¿Cómo describe mejor la forma en que usted toma decisiones de inversión?',
-  source: 'Pompian, M. (2008). Behavioral Finance and Wealth Management — Paso 1: activo o pasivo.',
+  source: 'Pompian, M. (2008). Behavioral Finance and Wealth Management — Paso 1: activo o pasivo. Separa explícitamente delegar en un asesor calificado (a) de seguir fuentes no calificadas como familia/redes sociales (b), ya que no son el mismo comportamiento: (b) es el sesgo de "Friendly Follower" (Pompian, 2008), (a) es delegación en expertise real.',
   options: [
-    { letter: 'a', text: 'Prefiero que un asesor decida por mí' },
-    { letter: 'b', text: 'Sigo lo que recomiendan mi asesor, mi familia o lo que veo en redes sociales' },
-    { letter: 'c', text: 'Investigo y formo mis propias opiniones, aunque escucho a otros' },
-    { letter: 'd', text: 'Decido de forma autónoma, incluso si contradice la opinión de expertos' },
+    { letter: 'a', text: 'Prefiero que un asesor financiero calificado decida por mí' },
+    { letter: 'b', text: 'Sigo lo que recomiendan mi familia, mis amigos, o lo que veo en redes sociales' },
+    { letter: 'c', text: 'Comparo varias alternativas y decido yo, aunque a veces converso con un asesor u otras personas antes' },
+    { letter: 'd', text: 'Investigo por mi cuenta y tomo la decisión final yo mismo, sin depender de lo que me sugieran' },
   ],
 };
 
