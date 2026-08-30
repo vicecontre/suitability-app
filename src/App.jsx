@@ -16,8 +16,8 @@ const PROFILE_ICONS = {
 };
 
 const EQUITY_COLORS = [
-  '#1971c2', '#145591', '#0f3d6b', '#3f8fd6', '#6ba9e0',
-  '#0ba587', '#0c7c66', '#4bc4a9', '#87d6c2', '#c2ecdf',
+  '#1a7f72', '#146058', '#0f4a43', '#3fa596', '#6bc0b1',
+  '#0c8577', '#0a6a5e', '#4bbcac', '#87d6c9', '#c2ece4',
 ];
 
 function buildChartData(profile) {
@@ -73,7 +73,11 @@ export default function App() {
     <div className="min-h-screen bg-canvas text-ink font-sans selection:bg-primary selection:text-white flex flex-col items-center overflow-x-hidden">
 
       <nav className="w-full bg-canvas flex items-center justify-between px-8 md:px-16 pt-8 pb-2 z-10 sticky top-0">
-        <div className="flex items-center gap-2 cursor-pointer" onClick={restart}>
+        <div className="flex items-center gap-2.5 cursor-pointer" onClick={restart}>
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+            <rect width="24" height="24" rx="7" fill="#1a7f72" />
+            <path d="M7 15 L10 10 L13 13 L17 7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          </svg>
           <span className="text-lg font-bold tracking-tight text-ink">Perfilador de Inversionista</span>
         </div>
       </nav>

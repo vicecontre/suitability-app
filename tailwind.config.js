@@ -8,9 +8,10 @@ export default {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#1971c2',
-          active: '#145591',
-          disabled: '#a9c9e8',
+          DEFAULT: '#1a7f72',
+          active: '#146058',
+          disabled: '#a9d2cb',
+          soft: '#e6f4f1',
         },
         ink: '#0a0b0d',
         body: '#5b616e',
@@ -27,9 +28,9 @@ export default {
         'semantic-down': '#cf202f',
       },
       fontFamily: {
-        sans: ['Inter', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
-        display: ['Inter', 'sans-serif'],
+        display: ['Plus Jakarta Sans', 'sans-serif'],
       },
       spacing: {
         xxs: '4px',

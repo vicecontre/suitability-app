@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #1971c2;
-  --color-primary-active: #145591;
-  --color-primary-disabled: #a9c9e8;
+  --color-primary: #1a7f72;
+  --color-primary-active: #146058;
+  --color-primary-disabled: #a9d2cb;
+  --color-primary-soft: #e6f4f1;
 
   --color-ink: #0a0b0d;
   --color-body: #5b616e;
@@ -22,9 +23,9 @@
   --color-semantic-up: #05b169;
   --color-semantic-down: #cf202f;
 
-  --font-sans: 'Inter', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
-  --font-display: 'Inter', sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
 
   --radius-none: 0px;
   --radius-xs: 4px;
