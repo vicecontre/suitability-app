@@ -167,18 +167,6 @@ export const SCORED_QUESTIONS = [
     ],
   },
   {
-    id: 'p7_recesion',
-    dimension: 'toleranciaRiesgo',
-    original: true,
-    text: 'Si el mercado entra en recesión y su inversión pierde valor, ¿qué haría?',
-    source: 'Reacción revelada ante un evento de mercado externo/macro (no específico a su cartera).',
-    options: [
-      { letter: 'a', text: 'Vender inmediatamente y evitar más pérdidas', points: 1 },
-      { letter: 'b', text: 'Consultar con mi asesor de inversiones', points: 2 },
-      { letter: 'c', text: 'Mantener mis posiciones y comprar más', points: 3 },
-    ],
-  },
-  {
     id: 'p8_caida50',
     dimension: 'toleranciaRiesgo',
     referenceId: 1,
@@ -349,7 +337,7 @@ function byId(id) {
   return SCORED_QUESTIONS.find((q) => q.id === id);
 }
 
-// Orden de presentación al usuario (20 preguntas en total).
+// Orden de presentación al usuario (19 preguntas en total).
 export const ALL_QUESTIONS = [
   byId('p1_horizonte'),
   byId('p1b_horizonte_retiro'),
@@ -360,7 +348,6 @@ export const ALL_QUESTIONS = [
   byId('p5b_literacy_interes'),
   byId('p5c_literacy_inflacion'),
   byId('p6_estilo'),
-  byId('p7_recesion'),
   byId('p8_caida50'),
   byId('p9_actitud_riesgo'),
   byId('p16_rangos_retorno'),
