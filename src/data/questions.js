@@ -15,12 +15,15 @@
 //      Kahneman & Tversky; Carrie, Pan & Statman, 2012), y por sí sola
 //      cubre esa dimensión obligatoria.
 //
-// Además de esos dos cambios, se agregaron tres preguntas extra a partir de
+// Además de esos dos cambios, se agregaron preguntas extra a partir de
 // literatura académica (no exigidas por el instructivo, pero justificadas):
 //   3. P5b y P5c: alfabetización financiera objetiva ("Big Three" de
 //      Lusardi & Mitchell, 2011) — refuerzan "Conocimiento" con preguntas de
 //      respuesta correcta verificable, en vez de solo autoevaluación.
-//   4. P15 (activos digitales/FOMO, ver más abajo): CFA Institute (2023).
+//   4. P15 (activos digitales/FOMO): CFA Institute (2023).
+//   5. P1b (duración del spending): Schwab / Vanguard — refuerza Horizonte.
+//   6. P16 (rangos de retorno aceptables): Charles Schwab — refuerza Tolerancia.
+//   7. P17 (reacción a caídas): Vanguard / conductual — refuerza Sesgos.
 //
 // Pesos por dimensión (suman 1.0). HHI = sum(w_i^2) = 0.19, por debajo del
 // umbral de 0.25 que la CMF identifica como "concentración alta" entre
@@ -71,6 +74,19 @@ export const SCORED_QUESTIONS = [
       { letter: 'a', text: 'Menos de 1 año', points: 1 },
       { letter: 'b', text: 'De 1 a 5 años', points: 2 },
       { letter: 'c', text: '5 o más años', points: 3 },
+    ],
+  },
+  {
+    id: 'p1b_horizonte_retiro',
+    dimension: 'horizonte',
+    added: true,
+    text: 'Una vez que empiece a retirar dinero de esta inversión, ¿durante cuánto tiempo planea usarlo?',
+    source: 'Schwab / Vanguard — duración del spending. Complementa P1 (cuándo empieza a retirar) midiendo por cuánto tiempo se usará el capital. Mejora la discriminación del horizonte real.',
+    options: [
+      { letter: 'a', text: 'Menos de 2 años', points: 1 },
+      { letter: 'b', text: 'Entre 2 y 5 años', points: 2 },
+      { letter: 'c', text: 'Entre 6 y 10 años', points: 3 },
+      { letter: 'd', text: 'Más de 10 años', points: 4 },
     ],
   },
   {
@@ -188,6 +204,20 @@ export const SCORED_QUESTIONS = [
     ],
   },
   {
+    id: 'p16_rangos_retorno',
+    dimension: 'toleranciaRiesgo',
+    added: true,
+    text: 'A continuación se muestran 5 planes hipotéticos de inversión con su retorno promedio anual, el mejor y el peor escenario posible en un año. ¿Cuál de estos rangos de resultados le resulta más aceptable?',
+    source: 'Charles Schwab Investor Profile Questionnaire — pregunta clásica de rangos de retorno aceptables. Obliga a elegir entre volatilidades reales, no solo declarar una tolerancia abstracta.',
+    options: [
+      { letter: 'a', text: 'Plan A: promedio 7%, mejor +23%, peor –10%', points: 1 },
+      { letter: 'b', text: 'Plan B: promedio 8%, mejor +27%, peor –13%', points: 2 },
+      { letter: 'c', text: 'Plan C: promedio 9%, mejor +31%, peor –21%', points: 3 },
+      { letter: 'd', text: 'Plan D: promedio 10%, mejor +34%, peor –30%', points: 4 },
+      { letter: 'e', text: 'Plan E: promedio 10,5%, mejor +40%, peor –36%', points: 5 },
+    ],
+  },
+  {
     id: 'p12_prospectos',
     dimension: 'sesgos',
     referenceId: 4,
@@ -199,6 +229,20 @@ export const SCORED_QUESTIONS = [
       { letter: 'b', text: 'Asegurar $800.000, aunque me tienta la otra opción', points: 2 },
       { letter: 'c', text: 'Arriesgarme a ganar $2.000.000 o no ganar nada, aunque lo dudo un poco', points: 3 },
       { letter: 'd', text: 'Arriesgarme claramente a ganar $2.000.000 o no ganar nada', points: 4 },
+    ],
+  },
+  {
+    id: 'p17_reaccion_caidas',
+    dimension: 'sesgos',
+    added: true,
+    text: 'Durante caídas fuertes del mercado, tiendo a vender parte de mis inversiones más riesgosas y pasar el dinero a alternativas más seguras.',
+    source: 'Vanguard / conductual — captura aversión a la pérdida en acción (comportamiento real bajo presión), complementando la pregunta de teoría de prospectos (P12).',
+    options: [
+      { letter: 'a', text: 'Totalmente en desacuerdo', points: 5 },
+      { letter: 'b', text: 'En desacuerdo', points: 4 },
+      { letter: 'c', text: 'Ni de acuerdo ni en desacuerdo', points: 3 },
+      { letter: 'd', text: 'De acuerdo', points: 2 },
+      { letter: 'e', text: 'Totalmente de acuerdo', points: 1 },
     ],
   },
   {
@@ -305,9 +349,10 @@ function byId(id) {
   return SCORED_QUESTIONS.find((q) => q.id === id);
 }
 
-// Orden de presentación al usuario (17 preguntas en total).
+// Orden de presentación al usuario (20 preguntas en total).
 export const ALL_QUESTIONS = [
   byId('p1_horizonte'),
+  byId('p1b_horizonte_retiro'),
   byId('p2_patrimonio'),
   byId('p3_ingresos'),
   OBJECTIVE_QUESTION,
@@ -318,7 +363,9 @@ export const ALL_QUESTIONS = [
   byId('p7_recesion'),
   byId('p8_caida50'),
   byId('p9_actitud_riesgo'),
+  byId('p16_rangos_retorno'),
   byId('p12_prospectos'),
+  byId('p17_reaccion_caidas'),
   byId('p10_ingresos_futuros'),
   byId('p11_ahorro_emergencia'),
   ACTIVITY_QUESTION,
